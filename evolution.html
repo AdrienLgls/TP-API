@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaîne d'évolution</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="pokedex-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="help.html">Aide</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Chaîne d'évolution de <span id="pokemon-name">[Pokémon]</span></h1>
+        <div id="evolution-tree">
+            <!-- L'arbre d'évolution sera généré ici via JavaScript -->
+        </div>
+        <section id="conditions">
+            <h2>Conditions d'évolution</h2>
+            <div class="condition-select">
+                <label for="condition-type">Type :</label>
+                <select id="condition-type">
+                    <option value="level">Niveau</option>
+                    <option value="item">Objet (ex: Pierre Soleil)</option>
+                    <option value="location">Lieu</option>
+                </select>
+            </div>
+            <div class="condition-input">
+                <label for="condition-value">Valeur :</label>
+                <input type="text" id="condition-value" placeholder="ex: 20 ou Pierre Soleil">
+            </div>
+            <button id="apply-condition">Appliquer</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Simulateur d'évolution Pokémon</p>
+    </footer>
+    <script src="evolution.js"></script>
+</body>
+</html>

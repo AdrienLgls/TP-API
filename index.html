@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.css"></script>
-    <script src="script.js"></script>
+    <title>Simulateur d'évolution Pokémon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <input type="search">
-        <button>Search</button>
-    </div>
+    <header>
+        <nav class="pokedex-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="aide.html">Aide</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Explorez les évolutions Pokémon</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Entrez le nom d'un Pokémon (ex: Évoli)">
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+        <section id="popular-pokemon">
+            <h2>Pokémon populaires</h2>
+            <div class="pokemon-grid">
+                <!-- Les Pokémon populaires seront insérés ici via JavaScript -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Simulateur d'évolution Pokémon</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Pokémon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="pokedex-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="evolution.html">Chaîne d'évolution</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1><span id="pokemon-name">[Nom du Pokémon]</span></h1>
+        <div class="pokemon-card">
+            <img id="pokemon-image" src="" alt="Image du Pokémon">
+            <section id="basic-info">
+                <p><strong>Type :</strong> <span id="pokemon-type"></span></p>
+                <p><strong>Description :</strong> <span id="pokemon-description"></span></p>
+            </section>
+            <section id="stats">
+                <h2>Stats</h2>
+                <div class="stat-bar">
+                    <label>PV</label>
+                    <progress id="hp" value="0" max="255"></progress>
+                </div>
+                <div class="stat-bar">
+                    <label>Attaque</label>
+                    <progress id="attack" value="0" max="255"></progress>
+                </div>
+                <!-- Ajouter d'autres stats via JavaScript -->
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Simulateur d'évolution Pokémon</p>
+    </footer>
+    <script src="details.js"></script>
+</body>
+</html>
