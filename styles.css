@@ -246,6 +246,7 @@ main section {
 width: 80%;
   max-width: 800px;
   margin: 20px auto;
+  margin-bottom: 60px;
   padding: 20px;
   background: #fff;
   border: 3px solid #333;
@@ -271,6 +272,10 @@ position: fixed;
 
 /* Responsivité */
 @media (max-width: 768px) {
+
+
+
+
 
 
 
