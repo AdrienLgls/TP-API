@@ -37,7 +37,7 @@ async function loadSuggestions(query) {
         suggestion.addEventListener('click', () => {
             searchInput.value = p.name;
             suggestionsDiv.style.display = 'none';
-            window.location.href = `evolution.html?name=${p.name}`;
+            window.location.href = `/html/evolution.html?name=${p.name}`;
         });
         suggestionsDiv.appendChild(suggestion);
     });
