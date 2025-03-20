@@ -26,7 +26,7 @@ function displayEvolutionChain(chain) {
     `;
     evolutionTreeDiv.appendChild(pokemonDiv);
     if (chain.evolves_to.length > 0) {
-        chain.evolves_to.forEach(evolution => displayEvolutionChain(evolution));
+        chain.evolves_to.forEach(evolves_to => displayEvolutionChain(evolves_to));
     }
 }
 
