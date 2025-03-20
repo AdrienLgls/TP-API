@@ -12,29 +12,39 @@ async function loadEvolutionChain() {
     const evolutionChainUrl = species.evolution_chain.url;
     const evolutionResponse = await fetch(evolutionChainUrl);
     const evolutionChain = await evolutionResponse.json();
-    displayEvolutionChain(evolutionChain.chain);
+    displayNextEvolutions(evolutionChain.chain, pokemonName);
 }
 
 // Fonction pour afficher la chaîne d'évolution
-function displayEvolutionChain(chain) {
-    const pokemonDiv = document.createElement('div');
-    pokemonDiv.className = 'evolution-node';
-    if (chain.evolves_to.length > 0) {
-        for(let i = 0; i < chain.evolves_to.length; i++){
+function displayNextEvolutions(chain, currentPokemon) {
+    if (chain.species.name === currentPokemon) {
+        for (let i = 0; i < chain.evolves_to.length; i++) {
+            const evo = chain.evolves_to[i];
+
+            // Récupération de l'ID du Pokémon évolué
+            const pokemonId = evo.species.url.split("/").slice(-2, -1)[0];
+
+            // Création d'une div pour chaque évolution
+            const pokemonDiv = document.createElement("div");
+            pokemonDiv.className = "evolution-node";
+
+            // Ajout du contenu HTML
             pokemonDiv.innerHTML = `
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${chain.evolves_to[i].species.url.split('/')[6]}.png" alt="${chain.species.name}">
-            <p>${chain.evolves_to[i].species.name}</p>
-        `;
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" alt="${evo.species.name}">
+                <p>${evo.species.name}</p>
+            `;
+
+            // Ajout au conteneur principal
+            evolutionTreeDiv.appendChild(pokemonDiv);
         }
+        return; // On arrête la recherche une fois qu'on a trouvé le Pokémon
     }
-    pokemonDiv.innerHTML = `
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${chain.evolves_to.species.url.split('/')[6]}.png" alt="${chain.species.name}">
-        <p>${chain.evolves_to.species.name}</p>
-    `;
-    evolutionTreeDiv.appendChild(pokemonDiv);
-    if (chain.evolves_to.length > 0) {
-        chain.forEach(evolves_to => displayEvolutionChain(evolves_to));
+
+    // Si ce n'est pas encore le Pokémon actuel, on continue la recherche dans les évolutions
+    for (let i = 0; i < chain.evolves_to.length; i++) {
+        displayNextEvolutions(chain.evolves_to[i], currentPokemon);
     }
+    
 }
 
 // Fonction pour appliquer les conditions d'évolution
