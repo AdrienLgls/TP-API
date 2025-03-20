@@ -17,7 +17,6 @@ async function loadEvolutionChain() {
 
 // Fonction pour afficher la chaîne d'évolution
 function displayEvolutionChain(chain) {
-    evolutionTreeDiv.innerHTML = '';
     const pokemonDiv = document.createElement('div');
     pokemonDiv.className = 'evolution-node';
     pokemonDiv.innerHTML = `
