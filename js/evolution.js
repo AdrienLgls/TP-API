@@ -19,13 +19,21 @@ async function loadEvolutionChain() {
 function displayEvolutionChain(chain) {
     const pokemonDiv = document.createElement('div');
     pokemonDiv.className = 'evolution-node';
+    if (chain.evolves_to.length > 0) {
+        for(let i = 0; i < chain.evolves_to.length; i++){
+            pokemonDiv.innerHTML = `
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${chain.evolves_to[i].species.url.split('/')[6]}.png" alt="${chain.species.name}">
+            <p>${chain.evolves_to[i].species.name}</p>
+        `;
+        }
+    }
     pokemonDiv.innerHTML = `
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${chain.species.url.split('/')[6]}.png" alt="${chain.species.name}">
-        <p>${chain.species.name}</p>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${chain.evolves_to.species.url.split('/')[6]}.png" alt="${chain.species.name}">
+        <p>${chain.evolves_to.species.name}</p>
     `;
     evolutionTreeDiv.appendChild(pokemonDiv);
     if (chain.evolves_to.length > 0) {
-        chain.evolves_to.forEach(evolves_to => displayEvolutionChain(evolves_to));
+        chain.forEach(evolves_to => displayEvolutionChain(evolves_to));
     }
 }
 
