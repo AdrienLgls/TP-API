@@ -7,6 +7,8 @@ const pokemonType = document.getElementById('pokemon-type');
 const pokemonDescription = document.getElementById('pokemon-description');
 const hpProgress = document.getElementById('hp');
 const attackProgress = document.getElementById('attack');
+const addFavoriteButton = document.getElementById('add-to-favorites');
+
 
 // Fonction pour charger les détails du Pokémon
 async function loadPokemonDetails() {
@@ -23,6 +25,20 @@ async function loadPokemonDetails() {
     const description = species.flavor_text_entries.find(entry => entry.language.name === 'en');
     pokemonDescription.textContent = description ? description.flavor_text : 'Pas de description disponible.';
 }
+// Fonction pour obtenir les favoris depuis le LocalStorage
+function getFavorites() {
+    const favorites = localStorage.getItem('favorites');
+    return favorites ? JSON.parse(favorites) : [];
+}
+// Fonction pour ajouter un favori
+function addFavorite(pokemonName) {
+    const favorites = getFavorites();
+    if (!favorites.includes(pokemonName)) {
+        favorites.push(pokemonName);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+}
 
 // Chargement initial
 document.addEventListener('DOMContentLoaded', loadPokemonDetails);
+addFavoriteButton.addEventListener('click', () => addFavorite(pokemonName));
