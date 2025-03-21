@@ -140,7 +140,8 @@ display: flex;
 }
 
 .evolution-node {
-margin: 10px;
+cursor: pointer;
+  margin: 10px;
   padding: 10px;
   text-align: center;
   background: #fff;
@@ -157,6 +158,19 @@ width: 100px;
 .evolution-node p {
 margin: 5px 0;
   font-weight: bold;
+}
+
+.evolution-node.highlight {
+transform: scale(1.2);
+  /* Zoom de 20% */
+  border: 2px solid #ffcc00;
+  /* Bordure dorée */
+  box-shadow: 0 0 10px #ffcc00;
+  /* Ombre lumineuse */
+  background-color: #fff3cc;
+  /* Fond clair pour surbrillance */
+  transition: all 0.3s ease;
+  /* Animation fluide */;
 }
 
 /* Conditions d'évolution */
@@ -272,6 +286,8 @@ position: fixed;
 
 /* Responsivité */
 @media (max-width: 768px) {
+
+
 
 
 
