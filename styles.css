@@ -253,6 +253,26 @@ display: block;
   margin: 0 auto;
 }
 
+#add-to-favorites {
+cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+  font-size: 12px;
+  color: #fff;
+  background: #333;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  /* Ajoute une transition pour un effet plus doux */;
+}
+
+#add-to-favorites:active {
+background-color: #09a310;
+  /* Change la couleur de fond lorsque le bouton est cliqué */;
+}
+
 #basic-info p {
 margin: 10px 0;
 }
@@ -304,15 +324,6 @@ position: fixed;
 
 /* Responsivité */
 @media (max-width: 768px) {
-
-
-
-
-
-
-
-
-
 
 
 
