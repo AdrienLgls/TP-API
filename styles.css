@@ -5,56 +5,52 @@
 
 /* Réinitialisation des styles de base */
 * {
-margin: 0;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* Style général du corps */
 body {
-font-family: 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif;
   color: #333;
-  background: url('https://wallpaperaccess.com/full/11915.jpg') no-repeat center center fixed;
+  background: url('https://images4.alphacoders.com/686/thumb-1920-686166.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 /* En-tête */
 header {
-padding: 10px 0;
-  text-align: center;
-  background: linear-gradient(to bottom, #ff0000, #cc0000);
+  width: 100%;
+  padding: 20px;
+  background: #494949;
   border-bottom: 5px solid #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 /* Navigation style Pokédex */
 .pokedex-nav ul {
-display: flex;
-  justify-content: center;
+  display: flex;
+  justify-content:right;
   list-style: none;
 }
 
-.pokedex-nav li {
-margin: 0 15px;
-}
-
 .pokedex-nav a {
-padding: 10px 20px;
+  padding: 20px 20px;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  background: #333;
-  border-radius: 20px;
-  transition: background 0.3s;
+  transition: color 0.5s;
 }
 
 .pokedex-nav a:hover {
-background: #555;
+  color: #b7b6b6;
 }
 
 /* Titres */
 h1, h2 {
-font-family: 'Pokemon Solid', sans-serif;
+  font-family: 'Pokemon Solid', sans-serif;
   margin: 20px 0;
   text-align: center;
   color: #ffcc00;
@@ -63,13 +59,13 @@ font-family: 'Pokemon Solid', sans-serif;
 
 /* Champ de recherche */
 .search-container {
-display: flex;
+  display: flex;
   justify-content: center;
   margin: 20px 0;
 }
 
 #search {
-width: 300px;
+  width: 300px;
   padding: 10px;
   padding-left: 60px;
   font-size: 16px;
@@ -313,7 +309,7 @@ color: #ff0000;
 
 /* Pied de page */
 footer {
-position: fixed;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding: 10px;
@@ -324,27 +320,20 @@ position: fixed;
 
 /* Responsivité */
 @media (max-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
 
+  .pokemon-card img {
+    width: 80px;
+    height: 80px;
+  }
 
+  #search {
+    width: 90%;
+  }
 
-
-
-
-
-.pokemon-grid {
-grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
-
-.pokemon-card img {
-width: 80px;
-  height: 80px;
-}
-
-#search {
-width: 90%;
-}
-
-#conditions, .pokemon-card {
-width: 90%;
-}
+  #conditions, .pokemon-card {
+    width: 90%;
+  }
 }

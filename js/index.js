@@ -38,11 +38,11 @@ async function loadFavorites() {
             <button class="remove-favorite">Supprimer des favoris</button>
         `;
 
-        // Rendre la carte cliquable pour rediriger vers evolution.html
+        // Rendre la carte cliquable pour rediriger vers details.html
         pokemonCard.addEventListener('click', (e) => {
             // Vérifier que le clic n'est pas sur le bouton de suppression
             if (e.target.className !== 'remove-favorite') {
-                window.location.href = `/html/evolution.html?name=${pokemon.name}`;
+                window.location.href = `/html/details.html?name=${pokemon.name}`;
             }
         });
 

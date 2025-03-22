@@ -25,11 +25,13 @@ async function loadPokemonDetails() {
     const description = species.flavor_text_entries.find(entry => entry.language.name === 'en');
     pokemonDescription.textContent = description ? description.flavor_text : 'Pas de description disponible.';
 }
+
 // Fonction pour obtenir les favoris depuis le LocalStorage
 function getFavorites() {
     const favorites = localStorage.getItem('favorites');
     return favorites ? JSON.parse(favorites) : [];
 }
+
 // Fonction pour ajouter un favori
 function addFavorite(pokemonName) {
     const favorites = getFavorites();
