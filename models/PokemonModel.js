@@ -20,7 +20,7 @@ export async function getPokemonDescription(speciesUrl) {
 }
 
 export async function getPokemonSuggestions(query) {
-    if (query.length < 3) return [];
+    if (query.length < 2) return [];
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
     const data = await response.json();
     return data.results.filter(p => p.name.startsWith(query.toLowerCase()));
