@@ -1,17 +1,43 @@
-// controllers/DetailsController.js
+/**
+ * DetailsController.js - Gestion de la page de détails
+ */
 import { getPokemonDetails, getPokemonDescription } from '../models/PokemonModel.js';
 import { addFavorite } from '../models/FavoritesModel.js';
-import { renderPokemonDetails } from '../views/DetailsView.js';
+import { DetailsView } from '../views/DetailsView.js';
 
-const urlParams = new URLSearchParams(window.location.search);
-const pokemonName = urlParams.get('name');
+export class DetailsController {
+    constructor() {
+        this.urlParams = new URLSearchParams(window.location.search);
+        this.pokemonName = this.urlParams.get('name');
+        this.initializeEventListeners();
+    }
 
-async function loadPokemonDetails() {
-    const pokemon = await getPokemonDetails(pokemonName);
-    const description = await getPokemonDescription(pokemon.speciesUrl);
-    pokemon.description = description;
-    renderPokemonDetails(pokemon);
+    /**
+     * Charge et affiche les détails du Pokémon.
+     */
+    async loadPokemonDetails() {
+        try {
+            const pokemon = await getPokemonDetails(this.pokemonName);
+            const description = await getPokemonDescription(pokemon.speciesUrl);
+            pokemon.description = description;
+            DetailsView.renderPokemonDetails(pokemon);
+        } catch (error) {
+            console.error('Erreur lors du chargement des détails :', error);
+        }
+    }
+
+    /**
+     * Initialise les écouteurs d'événements pour ajouter aux favoris.
+     */
+    initializeEventListeners() {
+        document.getElementById('add-to-favorites').addEventListener('click', () => {
+            addFavorite(this.pokemonName);
+        });
+    }
 }
 
-document.getElementById('add-to-favorites').addEventListener('click', () => addFavorite(pokemonName));
-document.addEventListener('DOMContentLoaded', loadPokemonDetails);
+// Initialisation au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+    const controller = new DetailsController();
+    controller.loadPokemonDetails();
+});
