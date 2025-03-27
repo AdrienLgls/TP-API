@@ -15,7 +15,7 @@ export const IndexView = {
             suggestion.addEventListener('click', () => {
                 document.getElementById('search').value = p.name;
                 suggestionsDiv.style.display = 'none';
-                window.location.href = `../pages/evolution.html?name=${p.name}`;
+                window.location.href = `/pages/evolution.html?name=${p.name}`;
             });
             suggestionsDiv.appendChild(suggestion);
         });
@@ -46,7 +46,7 @@ export const IndexView = {
             });
             pokemonCard.addEventListener('click', (e) => {
                 if (e.target.className !== 'remove-favorite') {
-                    window.location.href = `../pages/details.html?name=${pokemon.name}`;
+                    window.location.href = `/pages/details.html?name=${pokemon.name}`;
                 }
             });
             pokemonGrid.appendChild(pokemonCard);

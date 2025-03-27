@@ -37,6 +37,7 @@ export class IndexController {
     }
 
     setupEventListeners() {
+        console.log('setupEventListeners');
         this.searchInput.addEventListener('input', (e) => this.loadSuggestions(e.target.value));
     }
 }

@@ -10,7 +10,7 @@ function initializeController() {
         new EvolutionController();
     } else if (path.includes('details.html')) {
         new DetailsController();
-    } else if (path.includes('index.html')) {
+    } else {
         new IndexController();
     }
 }
