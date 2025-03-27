@@ -36,7 +36,7 @@ export const IndexView = {
             pokemonCard.innerHTML = `
                 <img src="${pokemon.image}" alt="${pokemon.name}">
                 <p>${pokemon.name}</p>
-                <button class="remove-favorite">Remove from favorites</button>
+                <button class="remove-favorite">Enlever des favoris</button>
             `;
             pokemonCard.querySelector('.remove-favorite').addEventListener('click', (e) => {
                 e.stopPropagation();
