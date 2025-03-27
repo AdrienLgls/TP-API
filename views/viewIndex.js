@@ -31,11 +31,12 @@ export const IndexView = {
         const pokemonGrid = document.querySelector('.pokemon-grid');
         pokemonGrid.innerHTML = favorites.length === 0 ? '<p>Aucun favori enregistré.</p>' : '';
         favorites.forEach(pokemon => {
+            const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
             const pokemonCard = document.createElement('div');
             pokemonCard.className = 'pokemon-card';
             pokemonCard.innerHTML = `
                 <img src="${pokemon.image}" alt="${pokemon.name}">
-                <p>${pokemon.name}</p>
+                <p>${pokemonName}</p>
                 <button class="remove-favorite">Enlever des favoris</button>
             `;
             pokemonCard.querySelector('.remove-favorite').addEventListener('click', (e) => {
