@@ -29,7 +29,7 @@ export const IndexView = {
      */
     renderFavorites(favorites, onRemoveFavorite) {
         const pokemonGrid = document.querySelector('.pokemon-grid');
-        pokemonGrid.innerHTML = favorites.length === 0 ? '<p>No favorites saved.</p>' : '';
+        pokemonGrid.innerHTML = favorites.length === 0 ? '<p>Aucun favori enregistré.</p>' : '';
         favorites.forEach(pokemon => {
             const pokemonCard = document.createElement('div');
             pokemonCard.className = 'pokemon-card';
@@ -40,7 +40,7 @@ export const IndexView = {
             `;
             pokemonCard.querySelector('.remove-favorite').addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (confirm(`Do you really want to remove ${pokemon.name} from favorites?`)) {
+                if (confirm(`Voulez-vous vraiment supprimer ${pokemon.name} des favoris ?`)) {
                     onRemoveFavorite(pokemon.name);
                 }
             });
