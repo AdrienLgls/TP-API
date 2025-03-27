@@ -21,7 +21,7 @@ export const EvolutionView = {
                 <p>${evo.name}</p>
             `;
             pokemonDiv.addEventListener('click', () => {
-                window.location.href = `details.html?name=${evo.name}`;
+                window.location.href = `../pages/details.html?name=${evo.name}`;
             });
             evolutionTreeDiv.appendChild(pokemonDiv);
         });

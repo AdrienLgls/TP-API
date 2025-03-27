@@ -1,20 +1,20 @@
-/**
- * DetailsController.js - Gestion de la page de détails
- */
-import { getPokemonDetails, getPokemonDescription } from '../models/PokemonModel.js';
-import { addFavorite } from '../models/FavoritesModel.js';
-import { DetailsView } from '../views/DetailsView.js';
+// controllers/DetailsController.js
+import { getPokemonDetails, getPokemonDescription } from '../models/modelPokemon.js';
+import { addFavorite } from '../models/modelFavorites.js';
+import { DetailsView } from '../views/viewDetails.js';
 
 export class DetailsController {
     constructor() {
         this.urlParams = new URLSearchParams(window.location.search);
         this.pokemonName = this.urlParams.get('name');
-        this.initializeEventListeners();
+        this.init();
     }
 
-    /**
-     * Charge et affiche les détails du Pokémon.
-     */
+    init() {
+        this.loadPokemonDetails();
+        this.setupEventListeners();
+    }
+
     async loadPokemonDetails() {
         try {
             const pokemon = await getPokemonDetails(this.pokemonName);
@@ -26,18 +26,10 @@ export class DetailsController {
         }
     }
 
-    /**
-     * Initialise les écouteurs d'événements pour ajouter aux favoris.
-     */
-    initializeEventListeners() {
+    setupEventListeners() {
         document.getElementById('add-to-favorites').addEventListener('click', () => {
             addFavorite(this.pokemonName);
         });
     }
 }
 
-// Initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', () => {
-    const controller = new DetailsController();
-    controller.loadPokemonDetails();
-});
