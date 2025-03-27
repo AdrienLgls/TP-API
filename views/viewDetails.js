@@ -13,5 +13,7 @@ export const DetailsView = {
         document.getElementById('pokemon-description').textContent = pokemon.description;
         document.getElementById('hp').value = pokemon.hp;
         document.getElementById('attack').value = pokemon.attack;
+        document.getElementById("hpValue").textContent = pokemon.hp + " / 255";
+        document.getElementById("attackValue").textContent = pokemon.attack + " / 190";
     }
 };

@@ -132,14 +132,14 @@ background-color: #ff4444;
 
 /* Grille des Pokémon */
 .pokemon-grid {
-display: grid;
+  display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   padding: 20px;
 }
 
 .pokemon-card {
-overflow: hidden;
+  overflow: hidden;
   padding: 20px;
   text-align: center;
   background: rgba(255, 255, 255, 0.8);
@@ -151,18 +151,43 @@ overflow: hidden;
 }
 
 .pokemon-card:hover {
-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   transform: scale(1.05);
 }
 
 .pokemon-card img {
-width: 100px;
+  width: 100px;
   height: auto;
   border-radius: 8px;
 }
 
 .pokemon-card p {
-margin: 15px 0;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.pokemon-card-details {
+  width: 80%;
+  max-width: 600px;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card-details img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.pokemon-card-details p {
+  margin: 15px 0;
   font-weight: bold;
   color: #555;
 }

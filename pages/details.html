@@ -17,24 +17,28 @@
     </header>
     <main>
         <h1 id="pokemon-name"></h1>
-        <div class="pokemon-card">
-            <img id="pokemon-image" src="" alt="Image du Pokémon">
-            <button id="add-to-favorites">Ajouter aux favoris</button>
-            <section id="basic-info">
-                <p><strong>Type :</strong> <span id="pokemon-type"></span></p>
-                <p><strong>Description :</strong> <span id="pokemon-description"></span></p>
-            </section>
-            <section id="stats">
-                <h2>Stats</h2>
-                <div class="stat-bar">
-                    <label>PV</label>
-                    <progress id="hp" value="0" max="255"></progress>
-                </div>
-                <div class="stat-bar">
-                    <label>Attaque</label>
-                    <progress id="attack" value="0" max="255"></progress>
-                </div>
-            </section>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <div class="pokemon-card-details">
+                <img id="pokemon-image" src="" alt="Image du Pokémon">
+                <button id="add-to-favorites">Ajouter aux favoris</button>
+                <section id="basic-info">
+                    <p><strong>Type :</strong> <span id="pokemon-type"></span></p>
+                    <p><strong>Description :</strong> <span id="pokemon-description"></span></p>
+                </section>
+                <section id="stats">
+                    <h2>Stats</h2>
+                    <div class="stat-bar">
+                        <label>PV</label>
+                        <progress id="hp" value="0" max="255"></progress>
+                        <span id="hpValue">100 / 255</span>
+                    </div>
+                    <div class="stat-bar">
+                        <label>Attaque</label>
+                        <progress id="attack" value="0" max="190"></progress>
+                        <span id="attackValue">100 / 255</span>
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
     <script type="module" src="../main/main.js"></script>
