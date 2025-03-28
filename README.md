@@ -2,13 +2,9 @@
 
 Ce fichier `README.md` présente des exemples concrets pour tester la page d'évolution de votre projet Pokémon. Vous trouverez ci-dessous des instructions détaillées pour tester les évolutions de Pokémon comme Eevee et Pikachu, en utilisant des conditions spécifiques telles que les pierres d'évolution ("fire stone", "thunder stone", etc.).
 
----
-
 ## Introduction
 
 La page d'évolution permet d’afficher la chaîne d’évolution d’un Pokémon et de tester les conditions qui déclenchent ces évolutions (par exemple, l’utilisation d’objets comme des pierres ou l’atteinte d’un certain niveau). Les exemples ci-dessous vous guideront pour valider le bon fonctionnement de cette fonctionnalité.
-
----
 
 ## Exemples de test
 
@@ -42,7 +38,6 @@ Eevee est un Pokémon unique qui peut évoluer en plusieurs formes différentes 
 - **Magikarp** :
   - Condition : "level" = "20".
   - Résultat : Gyarados doit être mis en surbrillance.
-- **Bulbasaur** :
-  - Condition : "level" = "16".
-  - Résultat : Ivysaur doit être mis en surbrillance.
-
+- **Eevee** :
+  - Condition : "lieu" = "eterna-forest".
+  - Résultat : Leafeon doit être mis en surbrillance.
